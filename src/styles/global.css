@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @layer base {
+
 	:root,
 	:root[data-theme="light"] {
 		color-scheme: light;
@@ -24,4 +25,19 @@
 		--theme-accent-2: 0deg 0% 93%;
 		--theme-quote: 102deg 100% 86%;
 	}
+}
+
+/* Base styles */
+.themed-image {
+	content: var(--image-src, attr(src));
+}
+
+/* Light theme styles */
+[data-theme="light"] .themed-image {
+	--image-src: attr(data-light-src);
+}
+
+/* Dark theme styles */
+[data-theme="dark"] .themed-image {
+	--image-src: attr(data-dark-src);
 }

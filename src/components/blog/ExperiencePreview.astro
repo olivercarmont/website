@@ -1,0 +1,46 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getPostSortDate } from "@/data/post";
+import type { HTMLTag, Polymorphic } from "astro/types";
+import FormattedDate from "../FormattedDate.astro";
+
+type Props<Tag extends HTMLTag> = Polymorphic<{ as: Tag }> & {
+	post: CollectionEntry<"post">;
+	withDesc?: boolean;
+};
+
+const { as: Tag = "div", post, withDesc = false } = Astro.props;
+/*const postDate = getPostSortDate(post);*/
+---
+
+<Tag class="ml-8 flex items-center space-x-3.5 p-1.5">
+    <div class="flex-shrink-0 mr-4 mt-0.5"> 
+	<a class="cactus-link" data-astro-prefetch href={post.url}>
+    <script>
+    function updateImages() {
+        const images = document.querySelectorAll('.themed-image');
+        const theme = document.documentElement.getAttribute('data-theme');
+        
+        images.forEach((img) => {
+            if (img instanceof HTMLImageElement) {
+                img.src = img.getAttribute(`data-${theme}-src`) || img.src;
+            }
+        });
+    }
+    updateImages();
+    document.addEventListener('theme-change', updateImages);
+</script>
+    <img 
+    class="h-14 max-w-md themed-image" 
+    src={`experiences/white/${post.image}`}
+    data-light-src={`experiences/black/${post.image}`}
+    data-dark-src={`experiences/white/${post.image}`}
+    alt={post.title} 
+/>
+	</a>
+    </div>
+    <div class="flex-grow">
+    <h3 class="line-clamp-3 italic bold mb-2 text-sm mt-0.5">{post.pos}</h3>
+    <p class="line-clamp-3 italic text-xs">{post.desc}</p>
+    </div>
+</Tag>

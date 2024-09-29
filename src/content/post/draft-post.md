@@ -1,9 +1,9 @@
 ---
-title: "A working draft title"
-description: "This post is for testing the draft post functionality"
-publishDate: "10 March 2024"
-tags: ["test"]
+title: "My Guide on Not Getting Deported: Navigating CPT/OPT/H1-Bs"
+description: "Here is your guide on stepping on the right egg shells"
+publishDate: "29 Sep 2024"
+tags: ["Immigration"]
 draft: true
 ---
 
-If this is working correctly, this post should only be accessible in a dev environment, as well as any tags that are unique to this post.
+Stayed tuned...
