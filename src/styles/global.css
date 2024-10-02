@@ -30,10 +30,6 @@
 /* Base styles */
 .themed-image {
 	content: var(--image-src, attr(src));
-	max-width: 100%;
-	height: auto;
-	width: auto;
-	max-height: 3.5rem;
 	/* Equivalent to h-14 in Tailwind */
 }
 
