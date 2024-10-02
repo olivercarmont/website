@@ -31,7 +31,6 @@ const { as: Tag = "div", post, withDesc = false } = Astro.props;
     document.addEventListener('theme-change', updateImages);
 </script>
     <img 
-    class="h-14" 
     src={`experiences/white/${post.image}`}
     data-light-src={`experiences/black/${post.image}`}
     data-dark-src={`experiences/white/${post.image}`}
