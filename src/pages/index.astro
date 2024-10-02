@@ -68,25 +68,21 @@ const experiences: { desc: string; href: string; image: string; pos: string; tit
 	</section>
 
 	<section class="mt-16">
-		<h2 class="title mb-4 text-xl">Projects</h2>
-		<dl class="space-y-4">
-			{
-				cactusTech.map(({ desc, href, title }) => (
-					<div class="flex flex-col gap-2 sm:flex-row">
-						<dt>
-							<span class="flex">
-								<a class="cactus-link" href={href} rel="noreferrer" target="_blank">
-									{title}
-								</a>
-								:
-							</span>
-						</dt>
-						<dd>{desc}</dd>
-					</div>
-				))
-			}
-		</dl>
-	</section>
+    <h2 class="title mb-4 text-xl">Projects</h2>
+    <ul class="space-y-4">
+        {
+            cactusTech.map(({ desc, href, title }) => (
+                <li class="flex flex-wrap items-center gap-x-2">
+                    <dt>
+                        <a class="cactus-link" href={href} rel="noreferrer" target="_blank">
+                            {title}</a>:
+                    </dt>
+                    <dd class="inline-block">{desc}</dd>
+                </li>
+            ))
+        }
+    </ul>
+</section>
 
 	<section aria-label="Blog post list" class="mt-16">
 		<h2 class="title mb-4 text-xl">Posts</h2>
