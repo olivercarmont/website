@@ -32,18 +32,18 @@ const { as: Tag = "div", post, withDesc = false } = Astro.props;
 </script>
 
 {/*<img 
-    class="h-14 max-w-md themed-image" 
+   
     src={`/experiences/white/${post.image}`}
     data-light-src={`/experiences/black/${post.image}`}
     data-dark-src={`/experiences/white/${post.image}`}
     alt={post.title} 
 />*/}
 {post.image == "apple.png" ? 
-<img style="height:20px;" src="/experiences/white/apple.png"/> : ''}
+<img class="h-14 max-w-md themed-image" src="/experiences/white/apple.png"/> : ''}
 {post.image == "amazon.png" ? 
-<img style="height:20px;" src="/experiences/white/amazon.png"/> : ''}
+<img class="h-14 max-w-md themed-image" src="/experiences/white/amazon.png"/> : ''}
 {post.image == "calhacks.png" ? 
-<img style="height:20px;" src="/experiences/white/calhacks.png"/> : ''}
+<img class="h-14 max-w-md themed-image" src="/experiences/white/calhacks.png"/> : ''}
 
 {/*<img style="height:20px;" src="./apple.png"/>
 <img style="height:20px;" src="/main.png"/>
