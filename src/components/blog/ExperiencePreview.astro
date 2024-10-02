@@ -18,27 +18,23 @@ const { as: Tag = "div", post, withDesc = false } = Astro.props;
 	<a class="cactus-link" data-astro-prefetch href={post.url}>
     <script>
     function updateImages() {
-    console.log('Updating images');
-    const images = document.querySelectorAll('.themed-image');
-    const theme = document.documentElement.getAttribute('data-theme');
-    console.log('Current theme:', theme);
-    
-    images.forEach((img) => {
-        if (img instanceof HTMLImageElement) {
-            const newSrc = img.getAttribute(`data-${theme}-src`) || img.src;
-            console.log('Updating image:', img, 'New src:', newSrc);
-            img.src = newSrc;
-        }
-    });
-}
+        const images = document.querySelectorAll('.themed-image');
+        const theme = document.documentElement.getAttribute('data-theme');
+        
+        images.forEach((img) => {
+            if (img instanceof HTMLImageElement) {
+                img.src = img.getAttribute(`data-${theme}-src`) || img.src;
+            }
+        });
+    }
     updateImages();
     document.addEventListener('theme-change', updateImages);
 </script>
     <img 
     class="h-14 max-w-md themed-image" 
-    src={`experiences/white/${post.image}`}
-    data-light-src={`experiences/black/${post.image}`}
-    data-dark-src={`experiences/white/${post.image}`}
+    src={`/experiences/white/${post.image}`}
+    data-light-src={`/experiences/black/${post.image}`}
+    data-dark-src={`/experiences/white/${post.image}`}
     alt={post.title} 
 />
 	</a>
