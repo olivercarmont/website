@@ -18,7 +18,7 @@ const { as: Tag = "div", post, withDesc = false } = Astro.props;
 	<a class="cactus-link" data-astro-prefetch href={post.url}>
     <script>
     function updateImages() {
-        const images = document.querySelectorAll('.theme-img');
+        const images = document.querySelectorAll('.theme-imge');
         const theme = document.documentElement.getAttribute('data-theme');
         
         images.forEach((img) => {
@@ -39,8 +39,6 @@ const { as: Tag = "div", post, withDesc = false } = Astro.props;
     class="h-14 theme-img" 
     alt={post.image}
     src={`experiences/white/${post.image}`}
-    data-light-src={`experiences/black/${post.image}`}
-    data-dark-src={`experiences/white/${post.image}`}
 />
 	</a>
     </div>
