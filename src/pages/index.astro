@@ -11,30 +11,30 @@ const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
 const cactusTech: { desc: string; href: string; title: string }[] = [
 	{
-		desc: "Stock Chart Generation",
+		desc: "a stock chart generator",
 		href: "https://kynos.cc",
-		title: "Kynos.cc",
+		title: "kynos.cc",
 	},
 
 ];
 
 const experiences: { desc: string; href: string; image: string; pos: string; title: string }[] = [
 	{
-		desc: "Helping run the largest collegiate hackathon.",
+		desc: "helping run the largest collegiate hackathon.",
 		href: "https://calhacks.io",
 		image: "calhacks.png",
 		pos: "co-exec",
 		title: "Cal Hacks",
 	},
 	{
-		desc: "Semantic search for Privacy & Compliance.",
+		desc: "semantic search for Privacy & Compliance.",
 		href: "https://apple.com",
 		image: "apple.png",
 		pos: "intern",
 		title: "Apple",
 	},
 	{
-		desc: "Data pipelines to help Alexa scientists.",
+		desc: "data pipelines to help Alexa scientists.",
 		href: "https://amazon.com",
 		image: "amazon.png",
 		pos: "intern",
@@ -48,13 +48,13 @@ const experiences: { desc: string; href: string; image: string; pos: string; tit
 	<section>
 		<h1 class="title"></h1>
 		<p class="mb-5">
-			Senior at Berkeley. Trying to figure things out. Running Cal Hacks in my free time.
+			senior at berkeley. trying to figure things out. running cal hacks in my free time.
 		</p>
 		<SocialList />
 	</section>
 
 	<section aria-label="Blog post list" class="mt-14">
-		<h2 class="title mb-6 text-xl">Experience</h2>
+		<h2 class="title mb-6 text-xl">experience</h2>
 		<ul class="space-y-2.5">
 			{
 				experiences.map((p) => (
@@ -68,7 +68,7 @@ const experiences: { desc: string; href: string; image: string; pos: string; tit
 	</section>
 
 	<section class="mt-16">
-    <h2 class="title mb-4 text-xl">Projects</h2>
+    <h2 class="title mb-4 text-xl">projects</h2>
     <ul class="space-y-4">
         {
             cactusTech.map(({ desc, href, title }) => (
@@ -85,7 +85,7 @@ const experiences: { desc: string; href: string; image: string; pos: string; tit
 </section>
 
 	<section aria-label="Blog post list" class="mt-16">
-		<h2 class="title mb-4 text-xl">Posts</h2>
+		<h2 class="title mb-4 text-xl">blog</h2>
 		<ul class="space-y-4">
 			{
 				allPostsByDate.map((p) => (
