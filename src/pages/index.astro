@@ -9,7 +9,12 @@ const MAX_POSTS = 10;
 const allPosts = await getAllPosts();
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
-const cactusTech: { desc: string; href: string; title: string }[] = [
+const projects: { desc: string; href: string; title: string }[] = [
+	{
+		desc: "visualizing company emissions data",
+		href: "https://carbonview.netlify.app/",
+		title: "carbonview",
+	},
 	{
 		desc: "a stock chart generator",
 		href: "https://kynos.cc",
@@ -23,10 +28,20 @@ const cactusTech: { desc: string; href: string; title: string }[] = [
 	{
 		desc: "news aggregating api",
 		href: "https://news-aggregator-ui.netlify.app/",
-		title: "news-aggregator",
+		title: "newsaggregator",
 	},
-
 ];
+
+const socialPosts = [
+  {
+    platform: "Twitter",
+    embedCode: '<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Your tweet content here</p>&mdash; Your Name (@yourhandle) <a href="https://twitter.com/yourhandle/status/tweetID">Date</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'
+  },
+  {
+    platform: "LinkedIn",
+    embedCode: '<iframe src="https://www.linkedin.com/posts/oliver-carmont_perplexity-ceo-aravind-srinivas-keynote-activity-7252388083906531328-F64e?utm_source=share&utm_medium=member_desktop" height="500" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>'
+  }
+]
 
 const experiences: { desc: string; href: string; image: string; pos: string; title: string }[] = [
 	{
@@ -81,7 +96,7 @@ const experiences: { desc: string; href: string; image: string; pos: string; tit
     <h2 class="title mb-4 text-xl">projects</h2>
     <ul class="space-y-4">
         {
-            cactusTech.map(({ desc, href, title }) => (
+            projects.map(({ desc, href, title }) => (
                 <li class="flex flex-wrap items-center gap-x-2">
                     <dt>
                         <a class="cactus-link" href={href} rel="noreferrer" target="_blank">
@@ -107,6 +122,5 @@ const experiences: { desc: string; href: string; image: string; pos: string; tit
 			}
 		</ul>
 	</section>
-	
 	
 </PageLayout>
