@@ -9,6 +9,12 @@ const MAX_POSTS = 10;
 const allPosts = await getAllPosts();
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
+declare global {
+  interface Window {
+    twttr: any;
+  }
+}
+
 const projects: { desc: string; href: string; title: string; image: string }[] = [
 	{
 		desc: "visualizing company emissions data",
