@@ -9,39 +9,50 @@ const MAX_POSTS = 10;
 const allPosts = await getAllPosts();
 const allPostsByDate = sortMDByDate(allPosts).slice(0, MAX_POSTS);
 
-const projects: { desc: string; href: string; title: string }[] = [
+const projects: { desc: string; href: string; title: string; image: string }[] = [
 	{
 		desc: "visualizing company emissions data",
 		href: "https://carbonview.netlify.app/",
 		title: "carbonview",
+		image: "/projects/carbonview.png"
 	},
 	{
 		desc: "a stock chart generator",
 		href: "https://kynos.cc",
 		title: "kynos.cc",
+		image: "/projects/kynos.png"
 	},
 	{
 		desc: "option contracts api",
 		href: "https://clyo.lat",
 		title: "clyo.lat",
+		image: "/projects/clyo.png"
 	},
 	{
 		desc: "news aggregating api",
 		href: "https://news-aggregator-ui.netlify.app/",
 		title: "newsaggregator",
+		image: "/projects/newsaggregator.png"
 	},
 ];
 
 const socialPosts = [
   {
     platform: "Twitter",
-    embedCode: '<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Your tweet content here</p>&mdash; Your Name (@yourhandle) <a href="https://twitter.com/yourhandle/status/tweetID">Date</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'
+    lightEmbed: '<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Something I learned this week:<br><br>A couple sentences to the right person can change lives<br><br>ft: <a href="https://twitter.com/CalHacks?ref_src=twsrc%5Etfw">@CalHacks</a> <a href="https://twitter.com/karpathy?ref_src=twsrc%5Etfw">@karpathy</a> <a href="https://t.co/EVXbwKzveC">pic.twitter.com/EVXbwKzveC</a></p>&mdash; Oliver Carmont (@olivercarmont) <a href="https://twitter.com/olivercarmont/status/1805841095953465481?ref_src=twsrc%5Etfw">June 26, 2024</a></blockquote>',
+    darkEmbed: '<blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">Something I learned this week:<br><br>A couple sentences to the right person can change lives<br><br>ft: <a href="https://twitter.com/CalHacks?ref_src=twsrc%5Etfw">@CalHacks</a> <a href="https://twitter.com/karpathy?ref_src=twsrc%5Etfw">@karpathy</a> <a href="https://t.co/EVXbwKzveC">pic.twitter.com/EVXbwKzveC</a></p>&mdash; Oliver Carmont (@olivercarmont) <a href="https://twitter.com/olivercarmont/status/1805841095953465481?ref_src=twsrc%5Etfw">June 26, 2024</a></blockquote>'
   },
   {
-    platform: "LinkedIn",
-    embedCode: '<iframe src="https://www.linkedin.com/posts/oliver-carmont_perplexity-ceo-aravind-srinivas-keynote-activity-7252388083906531328-F64e?utm_source=share&utm_medium=member_desktop" height="500" width="100%" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>'
+    platform: "Twitter",
+    lightEmbed: '<blockquote class="twitter-tweet" data-theme="light"><p lang="en" dir="ltr">Had a great time meeting <a href="https://twitter.com/AravSrinivas?ref_src=twsrc%5Etfw">@AravSrinivas</a> at Cal Hacks last weekend<br><br>With help from The House Fund, we just released his full keynote:<a href="https://t.co/DBWQ4Pv0JK">https://t.co/DBWQ4Pv0JK</a><br><br>Take a look, it’s a great watch ❤️ <a href="https://t.co/SVx95zMKfB">pic.twitter.com/SVx95zMKfB</a></p>&mdash; Oliver Carmont (@olivercarmont) <a href="https://twitter.com/olivercarmont/status/1849554392711823490?ref_src=twsrc%5Etfw">October 24, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>',
+    darkEmbed: '<blockquote class="twitter-tweet" data-theme="dark"><p lang="en" dir="ltr">Had a great time meeting <a href="https://twitter.com/AravSrinivas?ref_src=twsrc%5Etfw">@AravSrinivas</a> at Cal Hacks last weekend<br><br>With help from The House Fund, we just released his full keynote:<a href="https://t.co/DBWQ4Pv0JK">https://t.co/DBWQ4Pv0JK</a><br><br>Take a look, it’s a great watch ❤️ <a href="https://t.co/SVx95zMKfB">pic.twitter.com/SVx95zMKfB</a></p>&mdash; Oliver Carmont (@olivercarmont) <a href="https://twitter.com/olivercarmont/status/1849554392711823490?ref_src=twsrc%5Etfw">October 24, 2024</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>'
   }
-]
+
+
+
+
+  
+];
 
 const experiences: { desc: string; href: string; image: string; pos: string; title: string }[] = [
 	{
@@ -94,19 +105,32 @@ const experiences: { desc: string; href: string; image: string; pos: string; tit
 
 	<section class="mt-16">
     <h2 class="title mb-4 text-xl">projects</h2>
-    <ul class="space-y-4">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {
-            projects.map(({ desc, href, title }) => (
-                <li class="flex flex-wrap items-center gap-x-2">
-                    <dt>
-                        <a class="cactus-link" href={href} rel="noreferrer" target="_blank">
-                            {title}</a>:
-                    </dt>
-                    <dd class="inline-block">{desc}</dd>
-                </li>
+            projects.map(({ desc, href, title, image }) => (
+                <div class="p-4 rounded-lg border border-gray-200 dark:border-gray-700 hover:shadow-md transition-shadow">
+                    
+                    <a 
+                        class="cactus-link inline-block mb-1"
+                        href={href}
+                        rel="noreferrer"
+                        target="_blank"
+                    >
+                        {title}
+                    </a>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">{desc}</p>
+					<div class="aspect-video overflow-hidden rounded-md">
+                        <img 
+                            src={image} 
+                            alt={title}
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                        />
+                    </div>
+                </div>
             ))
         }
-    </ul>
+    </div>
 </section>
 
 	<section aria-label="Blog post list" class="mt-16">
@@ -122,5 +146,95 @@ const experiences: { desc: string; href: string; image: string; pos: string; tit
 			}
 		</ul>
 	</section>
+
+<section aria-label="Social Media Posts" class="mt-16">
+  <h2 class="title mb-4 text-xl">social</h2>
+  <div class="space-y-8">
+    {socialPosts.map((post) => (
+      <div class="social-post-container overflow-hidden">
+        <div class="twitter-wrapper overflow-hidden">
+          <div class="light-tweet">
+            <Fragment set:html={post.lightEmbed} />
+          </div>
+          <div class="dark-tweet hidden">
+            <Fragment set:html={post.darkEmbed} />
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+.twitter-wrapper :global(.twitter-tweet) {
+    margin: 0 !important;
+    border-radius: 0.75rem !important;
+  }
+  
+  .twitter-wrapper iframe {
+    border-radius: 0.75rem !important;
+  }
+
+  .twitter-wrapper :global(.twitter-tweet-rendered) {
+    border-radius: 0.75rem !important;
+    overflow: hidden !important;
+  }
+
+  /* Target all corners specifically */
+  .twitter-wrapper :global(*) {
+    border-radius: 0.75rem !important;
+  }
+  .dark-tweet :global(.twitter-tweet) {
+    background-color: rgb(30, 39, 50) !important;
+  }
+  
+  .dark-tweet :global(iframe) {
+    background-color: rgb(30, 39, 50) !important;
+  }
+</style>
+
+<script>
+  // Load Twitter widgets
+  const loadTwitterScript = () => {
+    const script = document.createElement('script');
+    script.src = "https://platform.twitter.com/widgets.js";
+    script.async = true;
+    document.body.appendChild(script);
+  };
+
+  // Update tweet visibility based on theme
+  const updateTweets = () => {
+    const theme = document.documentElement.getAttribute('data-theme');
+    document.querySelectorAll('.light-tweet').forEach(tweet => {
+      tweet.classList.toggle('hidden', theme === 'dark');
+    });
+    document.querySelectorAll('.dark-tweet').forEach(tweet => {
+      tweet.classList.toggle('hidden', theme !== 'dark');
+    });
+    // Reload Twitter widgets after changing visibility
+    if (window.twttr && window.twttr.widgets) {
+      window.twttr.widgets.load();
+    }
+  };
+
+  // Watch for theme changes
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.attributeName === 'data-theme') {
+        updateTweets();
+      }
+    });
+  });
+
+  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+
+  // Initial setup
+  loadTwitterScript();
+  updateTweets();
+
+  // Update on page navigation
+  document.addEventListener('astro:after-swap', updateTweets);
+  document.addEventListener('astro:page-load', updateTweets);
+</script>
 	
 </PageLayout>
